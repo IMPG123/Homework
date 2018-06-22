@@ -25,9 +25,13 @@ struct Person
 	float realWage;
 };
 
-Person zggz[30];
+Person *zggz=new Person[100];
 
 FILE*fp;
+
+char name[10]="姓名";
+char num[10]="工号";
+
 
 void read();
 void write();
@@ -40,24 +44,11 @@ float grsds(float);
 
 int main()
 {
-	/*if ((fp = fopen("gx.dat", "a")))
-		{
-			for (int i = 0; i < ::n; i++)
-			{
-				Person a={"张四","0001",1000,1000,1000,1000,0,0,0};
-				fprintf(fp, "\n%-20s%-10s%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f",
-					a.name, a.num, a.postWage, a.ageWage,
-					a.allowance, a.perWage, a.payWage, a.tax,a.realWage);
-				cout<<zggz[i].name;
-			}
-			fclose(fp);
-			printf("保存成功！按回车继续\n");
-		}*/
 	read();
 	int m;
 	while (1)
 	{
-		//system("color 0a");
+		system("color 70");
 		printf("\n\n\n                  ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*\n");
 		printf("                        欢迎使用职工信息管理系统\n\n");
 		printf("                  +--------------------------------+\n");
@@ -90,7 +81,7 @@ int main()
 				break;
 			case 7:
 				{
-					//delete[]zggz; 
+					delete[]zggz; 
 					return 0;
 				}
 			}
@@ -193,11 +184,12 @@ void find()
 void list()
 {
 	system("cls");
-	cout<<n;
 	printf("姓名，职工号，岗位工资，薪级工资，津贴，实务工资，应付工资，个人所得税，实付工资\n");
+	//printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
+		//"姓名","职工号","岗位工资","薪级工资","津贴","实务工资","应付工资","个人所得税","实付工资");
 	for (int i = 0; i < n; i++)
 	{
-		printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
+		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
 			zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 			zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 	}
