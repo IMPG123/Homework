@@ -138,7 +138,6 @@ void write()
 				fprintf(fp, "\n%-20s%-10s%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f",
 					a.name, a.num, a.postWage, a.ageWage,
 					a.allowance, a.perWage, a.payWage, a.tax,a.realWage);
-				cout<<zggz[i].name;
 			}
 			fclose(fp);
 			printf("保存成功！按回车继续\n");
