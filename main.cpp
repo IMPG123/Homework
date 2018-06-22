@@ -1,4 +1,4 @@
-// 6995.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// 6995.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 #include "StdAfx.h"
 #include <stdlib.h>
@@ -44,14 +44,14 @@ int main()
 		{
 			for (int i = 0; i < ::n; i++)
 			{
-				Person a={"ÕÅËÄ","0001",1000,1000,1000,1000,0,0,0};
+				Person a={"å¼ å››","0001",1000,1000,1000,1000,0,0,0};
 				fprintf(fp, "\n%-20s%-10s%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f",
 					a.name, a.num, a.postWage, a.ageWage,
 					a.allowance, a.perWage, a.payWage, a.tax,a.realWage);
 				cout<<zggz[i].name;
 			}
 			fclose(fp);
-			printf("±£´æ³É¹¦£¡°´»Ø³µ¼ÌĞø\n");
+			printf("ä¿å­˜æˆåŠŸï¼æŒ‰å›è½¦ç»§ç»­\n");
 		}*/
 	read();
 	int m;
@@ -59,18 +59,18 @@ int main()
 	{
 		//system("color 0a");
 		printf("\n\n\n                  ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*\n");
-		printf("                        »¶Ó­Ê¹ÓÃÖ°¹¤ĞÅÏ¢¹ÜÀíÏµÍ³\n\n");
+		printf("                        æ¬¢è¿ä½¿ç”¨èŒå·¥ä¿¡æ¯ç®¡ç†ç³»ç»Ÿ\n\n");
 		printf("                  +--------------------------------+\n");
-		printf("                  |__________|  1.²éÑ¯  |__________|\n");
-		printf("                  |__________|  2.ĞŞ¸Ä  |__________|\n");
-		printf("                  |__________|  3.Ìí¼Ó  |__________|\n");
-		printf("                  |__________|  4.É¾³ı  |__________|\n");
-		printf("                  |__________|  5.±£´æ  |__________|\n");
-		printf("                  |__________|  6.ä¯ÀÀ  |__________|\n");
-		printf("                  |__________|  7.ÍË³ö  |__________|\n");
+		printf("                  |__________|  1.æŸ¥è¯¢  |__________|\n");
+		printf("                  |__________|  2.ä¿®æ”¹  |__________|\n");
+		printf("                  |__________|  3.æ·»åŠ   |__________|\n");
+		printf("                  |__________|  4.åˆ é™¤  |__________|\n");
+		printf("                  |__________|  5.ä¿å­˜  |__________|\n");
+		printf("                  |__________|  6.æµè§ˆ  |__________|\n");
+		printf("                  |__________|  7.é€€å‡º  |__________|\n");
 	    printf("                  +--------------------------------+\n\n");;
 		printf("                  ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*\n\n");
-		printf("                          ÇëÊäÈë¶ÔÓ¦µÄ×Ö·û[ ]\b\b");
+		printf("                          è¯·è¾“å…¥å¯¹åº”çš„å­—ç¬¦[ ]\b\b");
 		scanf_s("%d", &m);
 		if (m >= 1 && m <= 7)
 		{
@@ -97,14 +97,14 @@ int main()
 		}
 		else
 		{
-			printf("\n\nÎŞĞ§Ö¸Áî£¬°´»Ø³µÇëÖØÊÔ");
+			printf("\n\næ— æ•ˆæŒ‡ä»¤ï¼ŒæŒ‰å›è½¦è¯·é‡è¯•");
 			cin.get();
 			cin.get();
 		}
 	}
 	return 0;
 }
-//¶ÁÈ¡
+//è¯»å–
 void read()
 {
 	if ((fp = fopen("gx.dat", "r")))
@@ -118,13 +118,13 @@ void read()
 	}
 	else
 	{
-		printf("\n´ò¿ªÎÄ¼şÊ§°Ü£¡ÎŞ·¨È·¶¨Ö°¹¤ÈËÊı¡£");
+		printf("\næ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼æ— æ³•ç¡®å®šèŒå·¥äººæ•°ã€‚");
 	}
 	cout<<n;
 }
 
 
-//±£´æ
+//ä¿å­˜
 void write()
 {
 	system("cls");
@@ -141,36 +141,36 @@ void write()
 				cout<<zggz[i].name;
 			}
 			fclose(fp);
-			printf("±£´æ³É¹¦£¡°´»Ø³µ¼ÌĞø\n");
+			printf("ä¿å­˜æˆåŠŸï¼æŒ‰å›è½¦ç»§ç»­\n");
 		}
 		else
 		{
-			printf("´ò¿ªÎÄ¼şÊ§°Ü£¡°´»Ø³µ¼ÌĞø\n");
+			printf("æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼æŒ‰å›è½¦ç»§ç»­\n");
 		}
 	}
 	else
 	{
-		printf("\nÖ°¹¤ÈËÊıÎª0£¡°´»Ø³µ¼ÌĞø\n");
+		printf("\nèŒå·¥äººæ•°ä¸º0ï¼æŒ‰å›è½¦ç»§ç»­\n");
 	}
 	cin.get();
 	cin.get();
 	system("cls");
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 void find()
 {
 	system("cls");
 	char numkey[10];
-	printf("ÊäÈëÄãÒª²éÑ¯µÄ¹¤ºÅ:");
+	printf("è¾“å…¥ä½ è¦æŸ¥è¯¢çš„å·¥å·:");
 	scanf("%s", numkey);
 	int k = 0;
 	for (int i = 0; i < n; i++)
 	{
 		if (strcmp(numkey, zggz[i].num) == 0)
 		{
-			printf("\nÒÑ²éµ½£¬¼ÇÂ¼Îª£º\n");
-			printf("ĞÕÃû£º%-20s¹¤ºÅ£º%-10s¸ÚÎ»¹¤×Ê£º%-10.2fĞ½¼¶¹¤×Ê£º%-10.2f½òÌù£º%-10.2fÊµÁ¦¹¤×Ê£º%-10.2fÓ¦¸¶¹¤×Ê£º%-10.2f¸öÈËËùµÃË°£º%-10.2fÊµ·¢¹¤×Ê£º%-10.2f\n", 
+			printf("\nå·²æŸ¥åˆ°ï¼Œè®°å½•ä¸ºï¼š\n");
+			printf("å§“åï¼š%-20så·¥å·ï¼š%-10så²—ä½å·¥èµ„ï¼š%-10.2fè–ªçº§å·¥èµ„ï¼š%-10.2fæ´¥è´´ï¼š%-10.2få®åŠ›å·¥èµ„ï¼š%-10.2fåº”ä»˜å·¥èµ„ï¼š%-10.2fä¸ªäººæ‰€å¾—ç¨ï¼š%-10.2få®å‘å·¥èµ„ï¼š%-10.2f\n", 
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 			k = 1;
@@ -180,51 +180,51 @@ void find()
 	}
 	if (!k)
 	{
-		printf("¶Ô²»Æğ£¬²éÎŞ´ËÈË¡£\n");
+		printf("å¯¹ä¸èµ·ï¼ŒæŸ¥æ— æ­¤äººã€‚\n");
 		fclose(fp);
 	}
-	printf("\n²Ù×÷Íê³É£¬Çë°´ÏÂ»Ø³µ¼ÌĞø\n");
+	printf("\næ“ä½œå®Œæˆï¼Œè¯·æŒ‰ä¸‹å›è½¦ç»§ç»­\n");
 	cin.get();
 	cin.get();
 	system("cls");
 
 }
 
-//ä¯ÀÀ
+//æµè§ˆ
 void list()
 {
 	system("cls");
 	cout<<n;
-	printf("ĞÕÃû£¬Ö°¹¤ºÅ£¬¸ÚÎ»¹¤×Ê£¬Ğ½¼¶¹¤×Ê£¬½òÌù£¬ÊµÎñ¹¤×Ê£¬Ó¦¸¶¹¤×Ê£¬¸öÈËËùµÃË°£¬Êµ¸¶¹¤×Ê\n");
+	printf("å§“åï¼ŒèŒå·¥å·ï¼Œå²—ä½å·¥èµ„ï¼Œè–ªçº§å·¥èµ„ï¼Œæ´¥è´´ï¼Œå®åŠ¡å·¥èµ„ï¼Œåº”ä»˜å·¥èµ„ï¼Œä¸ªäººæ‰€å¾—ç¨ï¼Œå®ä»˜å·¥èµ„\n");
 	for (int i = 0; i < n; i++)
 	{
 		printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
 			zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 			zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 	}
-	printf("²Ù×÷Íê³É£¡»Ø³µ¼ÌĞø£¡\n");
+	printf("æ“ä½œå®Œæˆï¼å›è½¦ç»§ç»­ï¼\n");
 	cin.get();
 	cin.get();
 	system("cls");
 }
 
-//ĞŞ¸Ä
+//ä¿®æ”¹
 void modify()
 {
 	system("cls");
 	char numkey[10];
-	printf("ÊäÈëÄãÒªĞŞ¸ÄµÄ¹¤ºÅ£º");
+	printf("è¾“å…¥ä½ è¦ä¿®æ”¹çš„å·¥å·ï¼š");
 	scanf("%s", numkey);
 	int k = 0;
 	for (int i = 0; i < n; i++)
 	{
 		if (strcmp(numkey, zggz[i].num) == 0)
 		{
-			printf("\nÒÑ²éµ½£¬¼ÇÂ¼Îª£º\n");
+			printf("\nå·²æŸ¥åˆ°ï¼Œè®°å½•ä¸ºï¼š\n");
 			printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
-			printf("\nÇëÊäÈëĞŞ¸ÄºóµÄ»ù±¾ĞÅÏ¢£º\n");
+			printf("\nè¯·è¾“å…¥ä¿®æ”¹åçš„åŸºæœ¬ä¿¡æ¯ï¼š\n");
 			scanf("%s%s%f%f%f%f", &zggz[i].name, &zggz[i].num, &zggz[i].postWage, &zggz[i].ageWage, 
 				&zggz[i].allowance, &zggz[i].perWage);
 			zggz[i].payWage = zggz[i].postWage + zggz[i].ageWage + zggz[i].allowance + zggz[i].perWage;
@@ -237,21 +237,21 @@ void modify()
 	}
 	if (!k)
 	{
-		printf("\n\n¶Ô²»Æğ£¬Ã»ÓĞÕâ¸öÈË¡£");
+		printf("\n\nå¯¹ä¸èµ·ï¼Œæ²¡æœ‰è¿™ä¸ªäººã€‚");
 		fclose(fp);
 	}
-	printf("\n\n²Ù×÷Íê³É£¬Çë°´ÏÂ»Ø³µ¼ÌĞø");
+	printf("\n\næ“ä½œå®Œæˆï¼Œè¯·æŒ‰ä¸‹å›è½¦ç»§ç»­");
 	cin.get();
 	cin.get();
 	system("cls");
 }
 
-//É¾³ı
+//åˆ é™¤
 void del()
 {
 	system("cls");
 	char numkey[10];
-	printf("ÊäÈëÄãÒªÉ¾³ıµÄ¹¤ºÅ£º");
+	printf("è¾“å…¥ä½ è¦åˆ é™¤çš„å·¥å·ï¼š");
 	scanf("%s", numkey);
 	int k = 0;
 	for (int i = 0; i < n; i++)
@@ -259,13 +259,13 @@ void del()
 		if (strcmp(numkey, zggz[i].num) == 0)
 		{
 			int l;
-			printf("\nÒÑ²éµ½£¬¼ÇÂ¼Îª£º\n");
+			printf("\nå·²æŸ¥åˆ°ï¼Œè®°å½•ä¸ºï¼š\n");
 			printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
-			printf("\nÄãÕæµÄÒªÉ¾³ıÂğ£¿\n");
-			printf("ÊÇ£¬ÇëÊäÈë 1 \n");
-			printf("·ñ£¬ÇëÊäÈë 2 \n");
+			printf("\nä½ çœŸçš„è¦åˆ é™¤å—ï¼Ÿ\n");
+			printf("æ˜¯ï¼Œè¯·è¾“å…¥ 1 \n");
+			printf("å¦ï¼Œè¯·è¾“å…¥ 2 \n");
 			scanf("%d", &l);
 			if (l == 1)
 			{
@@ -279,7 +279,7 @@ void del()
 			}
 			else
 			{
-				printf("ºÃµÄÎÒÃÇ²»»áÉ¾³ıÕâÌõ¼ÇÂ¼µÄ£¡\n");
+				printf("å¥½çš„æˆ‘ä»¬ä¸ä¼šåˆ é™¤è¿™æ¡è®°å½•çš„ï¼\n");
 			}
 			k = 1;
 			fclose(fp);
@@ -289,38 +289,38 @@ void del()
 	}
 	if (!k)
 	{
-		printf("\n¶Ô²»Æğ£¬Ã»ÓĞÕÒµ½Õâ¸öÈË¡£");
+		printf("\nå¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°è¿™ä¸ªäººã€‚");
 		fclose(fp);
 	}
-	printf("Çë°´ÏÂ»Ø³µ¼ÌĞø\n");
+	printf("è¯·æŒ‰ä¸‹å›è½¦ç»§ç»­\n");
 	cin.get();
 	cin.get();
 	system("cls");
 }
 
-//Ìí¼Ó
+//æ·»åŠ 
 void add()
 {
 	system("cls");
 	++::n;
 	//cout<<::n;
-	printf("Çë°´ĞÕÃû¡¢¹¤ºÅ¡¢¸ÚÎ»¹¤×Ê¡¢Ğ½¼¶¹¤×Ê¡¢½òÌù¡¢ÊµÁ¦¹¤×ÊÊäÈëÖ°¹¤µÄ»ù±¾ĞÅÏ¢£º\n");
+	printf("è¯·æŒ‰å§“åã€å·¥å·ã€å²—ä½å·¥èµ„ã€è–ªçº§å·¥èµ„ã€æ´¥è´´ã€å®åŠ›å·¥èµ„è¾“å…¥èŒå·¥çš„åŸºæœ¬ä¿¡æ¯ï¼š\n");
 	scanf("%s%s%f%f%f%f", &zggz[n - 1].name, &zggz[n - 1].num, &zggz[n - 1].postWage, &zggz[n - 1].ageWage, &zggz[n - 1].allowance, &zggz[n - 1].perWage);
 	zggz[n - 1].payWage = zggz[n - 1].postWage + zggz[n-1].ageWage + zggz[n-1].allowance + zggz[n-1].perWage ;
 	zggz[n - 1].tax = grsds(zggz[n - 1].payWage);
 	zggz[n - 1].realWage = zggz[n - 1].payWage - zggz[n - 1].tax;
-	printf("Ìí¼Ó³É¹¦£¬Õâ¸öÖ°¹¤µÄĞÅÏ¢Îª£º\nĞÕÃû¡¢¹¤ºÅ¡¢¸ÚÎ»¹¤×Ê¡¢Ğ½¼¶¹¤×Ê¡¢½òÌù¡¢ÊµÁ¦¹¤×Ê¡¢Ó¦·¢¹¤×Ê¡¢¸öÈËËùµÃË°¡¢Êµ·¢¹¤×Ê");
+	printf("æ·»åŠ æˆåŠŸï¼Œè¿™ä¸ªèŒå·¥çš„ä¿¡æ¯ä¸ºï¼š\nå§“åã€å·¥å·ã€å²—ä½å·¥èµ„ã€è–ªçº§å·¥èµ„ã€æ´¥è´´ã€å®åŠ›å·¥èµ„ã€åº”å‘å·¥èµ„ã€ä¸ªäººæ‰€å¾—ç¨ã€å®å‘å·¥èµ„");
 	printf("\n%-20s%-10s%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f",
 		zggz[n - 1].name, zggz[n - 1].num, zggz[n - 1].postWage, zggz[n - 1].ageWage,
 		zggz[n - 1].allowance, zggz[n - 1].perWage, zggz[n - 1].payWage, zggz[n - 1].tax, zggz[n - 1].realWage);
-	printf("\n²Ù×÷Íê±Ï£¬Çë°´ÏÂ»Ø³µ¼ÌĞø£º\n");
+	printf("\næ“ä½œå®Œæ¯•ï¼Œè¯·æŒ‰ä¸‹å›è½¦ç»§ç»­ï¼š\n");
 	cin.get();
 	cin.get();
 	system("cls");
 }
 
 
-//¼ÆËã¸öÈËËùµÃË°
+//è®¡ç®—ä¸ªäººæ‰€å¾—ç¨
 float grsds(float wage)
 {
 	if (wage <= 500)
