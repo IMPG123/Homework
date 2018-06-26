@@ -1,5 +1,3 @@
-// 6995.cpp : 定义控制台应用程序的入口点。
-//
 #include "StdAfx.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -29,8 +27,15 @@ Person *zggz=new Person[100];
 
 FILE*fp;
 
-char name[10]="姓名";
-char num[10]="工号";
+char name[]="姓名";
+char num[]="工号";
+char postWage[]="岗位工资";
+char ageWage[]="薪级工资";
+char allowance[]="津贴";
+char perWage[]="实务工资";
+char payWage[]="应付工资";
+char tax[]="个人所得税";
+char realWage[]="实付工资";
 
 
 void read();
@@ -98,12 +103,18 @@ int main()
 //读取
 void read()
 {
-	if ((fp = fopen("gx.dat", "r")))
+	if ((fp = fopen("gx.dat", "ab+")))
 	{
 		while (!feof(fp))
 		{
-			fscanf(fp, "%s%s%f%f%f%f%f%f%f", &zggz[n].name, &zggz[n].num, &zggz[n].postWage, &zggz[n].ageWage, &zggz[n].allowance, &zggz[n].perWage, &zggz[n].payWage, &zggz[n].tax, &zggz[n].realWage);
-			n++;
+			char a=fgetc(fp);
+			char b=EOF;
+			cout<<a;
+			if(a!=b)
+			{
+				fscanf(fp, "%s%s%f%f%f%f%f%f%f", &zggz[n].name, &zggz[n].num, &zggz[n].postWage, &zggz[n].ageWage, &zggz[n].allowance, &zggz[n].perWage, &zggz[n].payWage, &zggz[n].tax, &zggz[n].realWage);
+				n++;
+			}
 		}
 		fclose(fp);
 	}
@@ -111,7 +122,6 @@ void read()
 	{
 		printf("\n打开文件失败！无法确定职工人数。");
 	}
-	cout<<n;
 }
 
 
@@ -121,7 +131,7 @@ void write()
 	system("cls");
 	if (::n > 0)
 	{
-		if ((fp = fopen("gx.dat", "w")))
+		if ((fp = fopen("gx.dat", "wb")))
 		{
 			for (int i = 0; i < ::n; i++)
 			{
@@ -160,7 +170,7 @@ void find()
 		if (strcmp(numkey, zggz[i].num) == 0)
 		{
 			printf("\n已查到，记录为：\n");
-			printf("姓名：%-20s工号：%-10s岗位工资：%-10.2f薪级工资：%-10.2f津贴：%-10.2f实力工资：%-10.2f应付工资：%-10.2f个人所得税：%-10.2f实发工资：%-10.2f\n", 
+			printf("姓名：%s\n工号：%s\n岗位工资：%.2f\n薪级工资：%.2f\n津贴：%.2f\n实力工资：%.2f\n应付工资：%.2f\n个人所得税：%.2f\n实发工资：%.2f\n", 
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 			k = 1;
@@ -184,16 +194,15 @@ void find()
 void list()
 {
 	system("cls");
-	printf("姓名，职工号，岗位工资，薪级工资，津贴，实务工资，应付工资，个人所得税，实付工资\n");
-	//printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
-		//"姓名","职工号","岗位工资","薪级工资","津贴","实务工资","应付工资","个人所得税","实付工资");
+	printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
+		name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
 	for (int i = 0; i < n; i++)
 	{
-		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
+		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f\n",
 			zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 			zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 	}
-	printf("操作完成！回车继续！\n");
+	printf("\n操作完成！回车继续！\n");
 	cin.get();
 	cin.get();
 	system("cls");
@@ -212,7 +221,9 @@ void modify()
 		if (strcmp(numkey, zggz[i].num) == 0)
 		{
 			printf("\n已查到，记录为：\n");
-			printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
+			printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
+				name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
+			printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f",
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 			printf("\n请输入修改后的基本信息：\n");
@@ -231,7 +242,7 @@ void modify()
 		printf("\n\n对不起，没有这个人。");
 		fclose(fp);
 	}
-	printf("\n\n操作完成，请按下回车继续");
+	printf("\n操作完成，请按下回车继续");
 	cin.get();
 	cin.get();
 	system("cls");
@@ -251,12 +262,14 @@ void del()
 		{
 			int l;
 			printf("\n已查到，记录为：\n");
-			printf("%-20s%-10s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n",
+			printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
+				name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
+			printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f",
 				zggz[i].name, zggz[i].num, zggz[i].postWage, zggz[i].ageWage,
 				zggz[i].allowance, zggz[i].perWage, zggz[i].payWage, zggz[i].tax, zggz[i].realWage);
 			printf("\n你真的要删除吗？\n");
-			printf("是，请输入 1 \n");
-			printf("否，请输入 2 \n");
+			printf("是，请输入 1;否，请输入 2\n");
+			//printf("否，请输入 2 \n");
 			scanf("%d", &l);
 			if (l == 1)
 			{
@@ -283,7 +296,7 @@ void del()
 		printf("\n对不起，没有找到这个人。");
 		fclose(fp);
 	}
-	printf("请按下回车继续\n");
+	printf("操作完毕，请按下回车继续\n");
 	cin.get();
 	cin.get();
 	system("cls");
@@ -300,10 +313,12 @@ void add()
 	zggz[n - 1].payWage = zggz[n - 1].postWage + zggz[n-1].ageWage + zggz[n-1].allowance + zggz[n-1].perWage ;
 	zggz[n - 1].tax = grsds(zggz[n - 1].payWage);
 	zggz[n - 1].realWage = zggz[n - 1].payWage - zggz[n - 1].tax;
-	printf("添加成功，这个职工的信息为：\n姓名、工号、岗位工资、薪级工资、津贴、实力工资、应发工资、个人所得税、实发工资");
-	printf("\n%-20s%-10s%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f\t%-10f",
-		zggz[n - 1].name, zggz[n - 1].num, zggz[n - 1].postWage, zggz[n - 1].ageWage,
-		zggz[n - 1].allowance, zggz[n - 1].perWage, zggz[n - 1].payWage, zggz[n - 1].tax, zggz[n - 1].realWage);
+	printf("添加成功，这个职工的信息为：\n");
+	printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
+				name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
+	printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f",
+				zggz[n-1].name, zggz[n-1].num, zggz[n-1].postWage, zggz[n-1].ageWage,
+				zggz[n-1].allowance, zggz[n-1].perWage, zggz[n-1].payWage, zggz[n-1].tax, zggz[n-1].realWage);
 	printf("\n操作完毕，请按下回车继续：\n");
 	cin.get();
 	cin.get();
@@ -351,6 +366,3 @@ float grsds(float wage)
 		return (float)(500 * 0.05 + (2000 - 500) * 0.1 + (5000 - 2000)*0.15 + (20000 - 5000)*0.2 + (40000 - 20000)*0.25 + (60000 - 40000)*0.3 + (80000 - 60000)*0.35 + (100000 - 80000)*0.4+(wage-100000)*0.45);
 	}
 }
-
- 
-
