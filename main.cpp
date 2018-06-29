@@ -1,4 +1,3 @@
-
 #include "StdAfx.h"        //ide需要的头文件
 #include <conio.h>         //C语言输入输出的头文件
 #include<cstring>          //字符操作的头文件
@@ -109,6 +108,7 @@ void write()
 
 	//接收一个空格或回传
 	scanf("%c");
+	scanf("%c");
 	system("cls");
 }
 
@@ -208,19 +208,26 @@ void modify()
 			//防止职工号重复
 			while(1)
 			{
-				//重新给数组元素赋值并计算
+				//声明一个变量，把修改后的数据暂时放在这里
+				Person one;
+
+				//把原来的职工号暂时改变
+				strcpy(zggz[i].num,"0000");
+
+				//输入信息并计算
 				printf("\n请输入修改后的基本信息：\n");
-				scanf("%s%s%f%f%f%f", &zggz[i].name, &zggz[i].num, 
-					&zggz[i].postWage, &zggz[i].ageWage,
-					&zggz[i].allowance, &zggz[i].perWage);
-					zggz[i].payWage = zggz[i].postWage + zggz[i].ageWage 
-						+ zggz[i].allowance + zggz[i].perWage;
-					zggz[i].tax = grsds(zggz[i].payWage);
-					zggz[i].realWage = zggz[i].payWage - zggz[i].tax;
+				scanf("%s%s%f%f%f%f", &one.name, &one.num, 
+					&one.postWage, &one.ageWage,
+					&one.allowance, &one.perWage);
+					one.payWage = one.postWage + one.ageWage 
+						+ one.allowance + one.perWage;
+					one.tax = grsds(one.payWage);
+					one.realWage = one.payWage - one.tax;
 
 				//判断是否有重复的工号，没有则跳出当前循环
 				if(!checkUp(zggz[i].num))
 				{
+					zggz[i]=one; //修改后的数据没有问题才赋值
 					break;	
 				}//检查完毕
 
@@ -366,7 +373,7 @@ void add()
 	}
 
 	printf("请按姓名、工号、岗位工资、薪级工资、津贴、实力工资输入职工的基本信息：\n");
-	printf("每输入完一个人的信息请回车！\n");
+	printf("每输入完一个人的信息请换行！\n");
 
 	//依次输入信息
 	for(int i=0;i<time;i++)
@@ -374,21 +381,26 @@ void add()
 		//防止职工号有重复
 		while(1)
 		{
-			//人数加1
-			++count;
+			//声明一个变量，把输入数据暂时保存在这个变量中
+			Person one;
 
-			//给最后一个数组元素赋值，并计算其余信息
-			scanf("%s%s%f%f%f%f", &zggz[count - 1].name, &zggz[count - 1].num,
-				&zggz[count - 1].postWage, &zggz[count - 1].ageWage,
-				&zggz[count - 1].allowance, &zggz[count - 1].perWage);
-			zggz[count - 1].payWage = zggz[count - 1].postWage + zggz[count-1].ageWage 
-				+ zggz[count-1].allowance + zggz[count-1].perWage ;
-			zggz[count - 1].tax = grsds(zggz[count - 1].payWage);
-			zggz[count - 1].realWage = zggz[count - 1].payWage - zggz[count - 1].tax;
+			//把输入数据赋给临时变量
+			scanf("%s%s%f%f%f%f", &one.name, &one.num,
+				&one.postWage, &one.ageWage,
+				&one.allowance, &one.perWage);
+			one.payWage = one.postWage + one.ageWage 
+				+ one.allowance + one.perWage ;
+			one.tax = grsds(one.payWage);
+			one.realWage = one.payWage - one.tax;
 
 			//检查职工号是否有重复，没有就跳出当前循环
-			if(!checkUp(zggz[count - 1].num))
+			if(!checkUp(one.num))
 			{
+				//人数加1
+				++count;
+
+				 //没有问题的数据才能被赋值
+				zggz[count-1]=one;  
 				break;
 			}//检查完毕
 
@@ -404,11 +416,11 @@ void add()
 	for(int i=time;i>0;i--)
 	{
 		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f\n",
-			zggz[count-time].name, zggz[count-time].num, 
-			zggz[count-time].postWage,zggz[count-time].ageWage,
-			zggz[count-time].allowance, zggz[count-time].perWage, 
-			zggz[count-time].payWage,zggz[count-time].tax,
-			zggz[count-time].realWage);
+			zggz[count-i].name, zggz[count-i].num, 
+			zggz[count-i].postWage,zggz[count-i].ageWage,
+			zggz[count-i].allowance, zggz[count-i].perWage, 
+			zggz[count-i].payWage,zggz[count-i].tax,
+			zggz[count-i].realWage);
 	}//for循环结束于i=0
 
 	printf("\n操作完毕，请按下回车继续：\n");
@@ -468,15 +480,13 @@ bool checkUp( char str[10] )
 	bool ki=0;  //判断标识符，ki=0为没有重复，ki=1有重复
 
 	//检查每个数组元素
-	for(int i=0;i<count-1;i++)
+	for(int i=0;i<count;i++)
 	{
 		//判断是否有重复的工号
 		if ( strcmp(str, zggz[i].num)==0 )
 		{
 			printf("工号已存在，请重新输入！\n");
 			ki=1;
-			printf("%s",zggz[i].num);
-			printf("%s",str);
 		}//if结束
 
 	}//for结束于i=count,检查完毕
@@ -540,3 +550,5 @@ int main()
 	}
 	return 0;
 }
+
+
