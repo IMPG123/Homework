@@ -396,13 +396,14 @@ void add()
 
 	}//for循环结束
 
+	printf("添加成功，添加职工的信息为：\n");
+		printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
+			name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
+
 	//依次打印出添加后的职工信息
 	for(int i=time;i>0;i--)
 	{
-		printf("添加成功，这个职工的信息为：\n");
-		printf("%-9s%-7s%-10s%-10s%-10s%-10s%-10s%-11s%-10s\n",
-			name,num,postWage,ageWage,allowance,perWage,payWage,tax,realWage);
-		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f",
+		printf("%-9s%-7s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f%-11.2f%-10.2f\n",
 			zggz[count-time].name, zggz[count-time].num, 
 			zggz[count-time].postWage,zggz[count-time].ageWage,
 			zggz[count-time].allowance, zggz[count-time].perWage, 
@@ -467,18 +468,18 @@ bool checkUp( char str[10] )
 	bool ki=0;  //判断标识符，ki=0为没有重复，ki=1有重复
 
 	//检查每个数组元素
-	for(int i=0;i<count;i++)
+	for(int i=0;i<count-1;i++)
 	{
 		//判断是否有重复的工号
-		if(strcmp(zggz[i].num,str)==0)
+		if ( strcmp(str, zggz[i].num)==0 )
 		{
 			printf("工号已存在，请重新输入！\n");
 			ki=1;
+			printf("%s",zggz[i].num);
+			printf("%s",str);
 		}//if结束
 
 	}//for结束于i=count,检查完毕
-
-	printf("%d",ki);
 
 	return ki;
 }
