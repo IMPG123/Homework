@@ -55,14 +55,13 @@ void Swap(Node node[], int i, int j)
 
 void PrintSequenList(SequenList seqList)
 {
+	printf("%-8s %-8s %-8s %-10s %-8s \n","编号","名称","单价","销售数量","销售额");
 	for (int i = 1; i <= seqList.length; i++)
 	{
-		cout << seqList.node[i].num << " "
-			<< seqList.node[i].name << " "
-			<< seqList.node[i].price << " "
-			<< seqList.node[i].count << " "
-			<< seqList.node[i].sale << endl;
-
+		printf("%-8s %-8s %-8.2f %-10d %-8.2f \n", 
+			seqList.node[i].num, seqList.node[i].name, 
+			seqList.node[i].price, seqList.node[i].count,
+			seqList.node[i].sale);
 	}
 }
 
